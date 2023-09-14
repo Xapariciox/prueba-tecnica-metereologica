@@ -89,3 +89,4 @@ pnpm test
 ## Extras Personales
 
 - [ ] Tests
+- [ ] Route Lazy
