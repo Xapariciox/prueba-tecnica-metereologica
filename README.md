@@ -8,7 +8,7 @@
   - [Lanzar los test](#lanzar-los-test)
   - [Tareas generales](#tareas-generales)
 
-# Prueba Técnica eCommerce
+# Prueba Técnica metereologica
 
 Este repositorio contiene el código fuente y la documentación relacionada con la prueba técnica de la empresa metereologica.
 
