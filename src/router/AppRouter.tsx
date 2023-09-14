@@ -9,9 +9,7 @@ export const AppRouter = () => {
     <>
       <Switch>
         <Route path="/">
-          <Layout>
-            <Home />
-          </Layout>
+          <Home />
         </Route>
         <Route path="/forecast-next-day">
           <Layout>

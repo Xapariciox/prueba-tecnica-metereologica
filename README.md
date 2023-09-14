@@ -90,3 +90,4 @@ pnpm test
 
 - [ ] Tests
 - [ ] Route Lazy
+- [ ] Pagina Predicción Mensual

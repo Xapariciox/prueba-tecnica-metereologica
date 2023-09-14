@@ -18,3 +18,17 @@
   text-decoration: none;
   color: #000;
 }
+
+.ulHome {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+.liHome {
+  text-decoration: none;
+  list-style: none;
+}
+.linkHome {
+  text-decoration: none;
+}

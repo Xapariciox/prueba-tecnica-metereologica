@@ -22,8 +22,10 @@
 }
 html {
   background-color: var(--bg-green);
+  /* min-height: 100vh; */
 }
 
 body {
   font-family: source-sans-regular;
+  /* min-height: 100vh; */
 }
