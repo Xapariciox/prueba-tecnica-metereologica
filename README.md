@@ -1,6 +1,6 @@
 ## Tabla de Contenido
 
-- [Prueba Técnica Metereologica](#prueba-técnica-metereologica)
+- [Prueba Técnica metereologica](#prueba-técnica-metereologica)
   - [Enlace a la app](#enlace-a-la-app)
   - [Instrucciones para ejecutar el proyecto en local](#instrucciones-para-ejecutar-el-proyecto-en-local)
     - [Requisitos previos](#requisitos-previos)
