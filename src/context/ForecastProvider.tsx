@@ -4,6 +4,7 @@ import {
   getForecastHours
 } from '../services/data-meteorological'
 import { ForecastContext } from './ForecastContext'
+import { mockMadridDays, mockMadridHours } from '../mocks/responseMadrid'
 
 export const ForecastProvider = ({ children }: {children: JSX.Element}) => {
   const [locationUser, setLocationUser] = useState('Madrid')
@@ -12,9 +13,11 @@ export const ForecastProvider = ({ children }: {children: JSX.Element}) => {
     const forecastDays = getForecastDays(locationUser)
     const forecastHours = getForecastHours(locationUser)
   }
+ const  forecastDays= mockMadridDays
+ const forecastHours =  mockMadridHours
 
   useEffect(() => {
-    initForecast()
+    
   }, [locationUser])
 
   // const mappedForecastDay = forecastDays.map((forecast)=> {
@@ -25,6 +28,8 @@ export const ForecastProvider = ({ children }: {children: JSX.Element}) => {
     <ForecastContext.Provider
       value={{
         setLocationUser,
+        forecastDays,
+        forecastHours,
         // MappedForecastDay,
         locationUser
       }}
