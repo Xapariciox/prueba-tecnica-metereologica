@@ -78,16 +78,16 @@ pnpm test
 ## Tareas generales
 
 -   [x] API de datos metereológicos
--   [ ] Cambio de localidad
--   [ ] Pagina predicción detallada Proximas 24 horas
--   [ ] Pagina predicción Semanal
--   [ ] Modal tras 5 Búsquedas a membresia premium
--   [ ] Personalizar tema
--   [ ] Responsive
--   [ ] Script de empaquetado
+-   [x] Cambio de localidad
+-   [] Pagina predicción detallada Proximas 24 horas
+-   [] Pagina predicción Semanal
+-   [] Modal tras 5 Búsquedas a membresia premium
+-   [] Personalizar tema
+-   [] Responsive
+-   [] Script de empaquetado
 
 ## Extras Personales
 
--   [ ] Tests
--   [ ] Route Lazy
--   [ ] Pagina Predicción Mensual
+-   [] Tests
+-   [] Route Lazy
+-   [] Pagina Predicción Mensual
