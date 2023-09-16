@@ -80,15 +80,17 @@ pnpm test
 -   [x] API de datos metereológicos
 -   [x] Cambio de localidad
 -   [x] Pagina predicción detallada Proximas 24 horas
--   [] Pagina predicción Semanal
--   [] Modal tras 5 Búsquedas a membresia premium
+-   [x] Pagina predicción Semanal
+-   [x] Modal tras 5 Búsquedas a membresia premium
+
+## Tareas Opcionales
+
 -   [] Personalizar tema
 -   [] Responsive
--   [] Script de empaquetado
+-   [x] Script de empaquetado
 
 ## Extras Personales
 
 -   [] Tests
--   [] Route Lazy
 -   [] Pagina Predicción Mensual
 -   [] Typescript

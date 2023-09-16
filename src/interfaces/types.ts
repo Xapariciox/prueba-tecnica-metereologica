@@ -3,11 +3,10 @@ export interface ForecastContextProps {
     locationUser: string
     forecastDays: any
     forecastHours: any
-    // daysMapped: Array<foreCastDaysItemMapped>
-    // forecastHoursMock: any
     initForecastDays: () => void
     initForecastHours: () => void
     currentTime: string
+    trialFreeSearch: string
 }
 export interface foreCastDaysItem {
     date: string

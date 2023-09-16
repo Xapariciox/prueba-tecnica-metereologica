@@ -6,9 +6,8 @@ export const ForecastContext = createContext<ForecastContextProps>({
     locationUser: '',
     forecastDays: [],
     forecastHours: [],
-    // daysMapped: [],
-    // forecastHoursMock: [],
     initForecastDays: () => {},
     initForecastHours: () => {},
-    currentTime: ''
+    currentTime: '',
+    trialFreeSearch: ''
 })

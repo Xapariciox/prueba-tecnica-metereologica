@@ -7,12 +7,14 @@ import { ForecastContext } from './ForecastContext'
 import { HourlyForecastItem, foreCastDaysItem } from '../interfaces/types'
 import { mockMadridDays, mockMadridHours } from '../mocks/responseMadrid'
 import { translateItems } from '../helpers/translateTextToSpanish'
+import { getStorage, setStorage } from '../services/localstorage'
 
 export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [locationUser, setLocationUser] = useState('')
     const [forecastDays, setForecastDays] = useState({})
     const [forecastHours, setForecastHours] = useState({})
     const [currentTime, setCurrentTime] = useState('')
+    const [trialFreeSearch, setTrialFreeSearch] = useState('')
 
     // Mock de la api para usar en local
     const forecastHoursData = mockMadridHours
@@ -27,10 +29,26 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
         })
         setCurrentTime(horaActual)
     }
-
+    const viewTrialFreesearches = () => {
+        const numberSearchesLocalStorage = getStorage('numberSearches')
+        if (!numberSearchesLocalStorage) {
+            setStorage('numberSearches', '1')
+            setTrialFreeSearch('1')
+        } else {
+            if (numberSearchesLocalStorage === '5') {
+                setTrialFreeSearch('5')
+            } else {
+                const searchesNumer = parseInt(numberSearchesLocalStorage) + 1
+                const searchesString = searchesNumer.toString()
+                setStorage('numberSearches', searchesString)
+            }
+        }
+    }
     useEffect(() => {
         getCurrentDate()
+        viewTrialFreesearches()
     }, [forecastHours])
+
     const initForecastDays = async () => {
         try {
             // const forecastDaysData = await getForecastDays(locationUser)
@@ -98,7 +116,8 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
                 initForecastDays,
                 initForecastHours,
                 forecastHours,
-                currentTime
+                currentTime,
+                trialFreeSearch
             }}
         >
             {children}
