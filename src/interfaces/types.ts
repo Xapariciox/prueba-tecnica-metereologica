@@ -81,7 +81,7 @@ export interface foreCastDaysItemMapped {
 export interface HourlyForecastItem {
     date: string
     period: number
-    freshSnow: number
+    freshSnow: number | null
     weather: {
         state: number
         text: string
@@ -96,7 +96,7 @@ export interface HourlyForecastItem {
         class: number
     }
     temperature: {
-        avg: number
+        avg: number | null
     }
     pressure: number
     relativeHumidity: number
@@ -113,7 +113,7 @@ export interface HourlyForecastItem {
         min: number | null
         max: number | null
         gusts: {
-            value: number
+            value: number | null
             text: string | null
         }
         significationWind: boolean

@@ -3,6 +3,7 @@ import styles from '../styles/general.module.css'
 import { useForecast } from '../hooks/useForecast'
 import { useContext } from 'react'
 import { ForecastContext } from '../context/ForecastContext'
+import { BsSearch } from 'react-icons/bs'
 
 export const Header = () => {
     const { locationUser, forecastDays } = useContext(ForecastContext)
@@ -19,8 +20,13 @@ export const Header = () => {
                     value={locationUser}
                     name="location"
                     placeholder="Ver tiempo en..."
-                />
-                <button onClick={handleForecast}>Ver Pronostico</button>
+                />{' '}
+                <button
+                    className={styles.buttonForecast}
+                    onClick={handleForecast}
+                >
+                    <BsSearch />
+                </button>
             </div>
             <nav className={styles.navHeaderLayout}>
                 <ul className={styles.listaNavHeader}>

@@ -7,7 +7,8 @@ export const useForecast = () => {
         locationUser,
         initForecastDays,
         initForecastHours,
-        setLocationUser
+        setLocationUser,
+        forecastDays
     } = useContext(ForecastContext)
 
     const handleLocationUser = (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,13 +25,18 @@ export const useForecast = () => {
             return
         }
         const storedLocation = getStorage('location-user')
-        if (!storedLocation || storedLocation !== locationUser) {
+
+        if (
+            !storedLocation ||
+            storedLocation !== locationUser ||
+            Object.keys(forecastDays).length < 1
+        ) {
+            console.log('entra')
             setStorage('location-user', locationUser)
             initForecastDays()
             initForecastHours()
         }
     }
-    const loadAllForecast = () => {}
 
     return {
         handleLocationUser,

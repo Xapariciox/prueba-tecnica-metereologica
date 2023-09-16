@@ -4,10 +4,9 @@ import {
     getForecastHours
 } from '../services/data-meteorological'
 import { ForecastContext } from './ForecastContext'
-import { foreCastDaysItem } from '../interfaces/types'
+import { HourlyForecastItem, foreCastDaysItem } from '../interfaces/types'
 import { mockMadridDays, mockMadridHours } from '../mocks/responseMadrid'
 import { translateItems } from '../helpers/translateTextToSpanish'
-import { getStorage, setStorage } from '../services/localstorage'
 
 export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [locationUser, setLocationUser] = useState('')
@@ -21,7 +20,7 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
 
     const initForecastDays = async () => {
         try {
-            const forecastDaysData = await getForecastDays(locationUser)
+            // const forecastDaysData = await getForecastDays(locationUser)
             const forecastDaysMapped = forecastDaysData.forecast.items.map(
                 (forecast: foreCastDaysItem) => ({
                     date: forecast.date,
@@ -50,14 +49,14 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
 
     const initForecastHours = async () => {
         try {
-            const forecastHoursData = await getForecastHours(locationUser)
+            // const forecastHoursData = await getForecastHours(locationUser)
 
             const currentDate = new Date()
             const nowISO = currentDate.toISOString()
 
             // forecastHoursData.then(resp => console.log(resp))
             let filteredData = forecastHoursData.forecast.items.filter(
-                (item: any) => {
+                (item: HourlyForecastItem) => {
                     return (
                         new Date(item.date).getTime() >=
                         new Date(nowISO).getTime()
@@ -66,8 +65,8 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
             )
 
             const next24Hours = filteredData.slice(0, 24)
-
-            setForecastHours(next24Hours)
+            const datatranslated = translateItems(next24Hours)
+            setForecastHours(datatranslated)
         } catch (error) {
             console.error(
                 'Ocurrió un error al obtener los datos de pronóstico:',
@@ -90,8 +89,6 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
             value={{
                 setLocationUser,
                 forecastDays,
-                // forecastHoursMock,
-                // daysMapped,
                 locationUser,
                 initForecastDays,
                 initForecastHours,

@@ -9,7 +9,7 @@ export const ForecastDays = ({
     return (
         <ul className={styles.containerDaysWeek}>
             {days.map((day, index) => (
-                <ForecastDay key={index} day={day} />
+                <ForecastDay key={day.date} day={day} />
             ))}
         </ul>
     )

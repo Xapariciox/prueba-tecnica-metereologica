@@ -1,4 +1,4 @@
-import { foreCastDaysItemMapped } from '../interfaces/types'
+import { HourlyForecastItem, foreCastDaysItemMapped } from '../interfaces/types'
 import { mockMadridDays } from '../mocks/responseMadrid'
 
 export const translateGermanToSpanish = (germanText: string) => {
@@ -27,7 +27,9 @@ export const translateGermanToSpanish = (germanText: string) => {
     return textoTraducido
 }
 
-export function translateItems(items: Array<foreCastDaysItemMapped>) {
+export function translateItems(
+    items: Array<foreCastDaysItemMapped | HourlyForecastItem>
+) {
     return items.map(item => {
         if (item.weather && item.weather.text) {
             item.weather.text = translateGermanToSpanish(item.weather.text)
