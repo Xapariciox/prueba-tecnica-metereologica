@@ -21,7 +21,7 @@ const getApiHours = ({ place }: { place: string }) => {
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'e9d6cd58b2msh1bf8d07863d66b5p1aab63jsn72001fe5cfd1',
+        'X-RapidAPI-Key': 'fe10fd00d8msh7ec9b3d7b40c9d8p12e352jsneb123665e598',
         'X-RapidAPI-Host': 'forecast9.p.rapidapi.com'
     }
 }
@@ -46,7 +46,6 @@ export const getForecastHours: (place: string) => Promise<any> = async (
     try {
         const response = await fetch(getApiHours({ place }), options)
         const result = await response.json()
-        console.log('se realizo llamada')
 
         return result
     } catch (error) {

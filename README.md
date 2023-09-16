@@ -79,7 +79,7 @@ pnpm test
 
 -   [x] API de datos metereológicos
 -   [x] Cambio de localidad
--   [] Pagina predicción detallada Proximas 24 horas
+-   [x] Pagina predicción detallada Proximas 24 horas
 -   [] Pagina predicción Semanal
 -   [] Modal tras 5 Búsquedas a membresia premium
 -   [] Personalizar tema
@@ -91,3 +91,4 @@ pnpm test
 -   [] Tests
 -   [] Route Lazy
 -   [] Pagina Predicción Mensual
+-   [] Typescript

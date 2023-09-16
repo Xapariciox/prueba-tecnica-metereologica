@@ -31,7 +31,6 @@ export const useForecast = () => {
             storedLocation !== locationUser ||
             Object.keys(forecastDays).length < 1
         ) {
-            console.log('entra')
             setStorage('location-user', locationUser)
             initForecastDays()
             initForecastHours()

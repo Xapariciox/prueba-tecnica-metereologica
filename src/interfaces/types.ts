@@ -7,6 +7,7 @@ export interface ForecastContextProps {
     // forecastHoursMock: any
     initForecastDays: () => void
     initForecastHours: () => void
+    currentTime: string
 }
 export interface foreCastDaysItem {
     date: string
@@ -76,6 +77,7 @@ export interface foreCastDaysItemMapped {
         text: string
         icon: string
     }
+    precPosibility: number
 }
 
 export interface HourlyForecastItem {

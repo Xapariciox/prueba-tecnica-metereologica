@@ -9,5 +9,6 @@ export const ForecastContext = createContext<ForecastContextProps>({
     // daysMapped: [],
     // forecastHoursMock: [],
     initForecastDays: () => {},
-    initForecastHours: () => {}
+    initForecastHours: () => {},
+    currentTime: ''
 })

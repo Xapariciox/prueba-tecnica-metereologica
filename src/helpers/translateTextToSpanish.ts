@@ -20,8 +20,11 @@ export const translateGermanToSpanish = (germanText: string) => {
         case 'sonnig':
             textoTraducido = 'Soleado'
             break
+        case 'klar':
+            textoTraducido = 'Claro'
+            break
         default:
-            textoTraducido = 'Estable'
+            textoTraducido = germanText
     }
 
     return textoTraducido

@@ -7,6 +7,7 @@
 }
 :root {
     --bg-green: #f2f7e3;
+    --colorITemForecast: #04aeef;
 }
 @font-face {
     font-family: 'source-sans-regular';

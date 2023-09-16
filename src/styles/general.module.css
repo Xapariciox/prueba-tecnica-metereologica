@@ -1,6 +1,6 @@
 .headerLayaout {
     min-height: 10vh;
-    background-color: #04aeef;
+    background-color: var(--colorITemForecast);
     margin-bottom: 20px;
 }
 
@@ -51,15 +51,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
-    gap: 15px;
+    height: 30vh;
 }
 .ulDaysHours {
     display: flex;
     height: 50vh;
     overflow-x: scroll;
     align-items: center;
-    /* background-color: #04aeef; */
+    /* background-color: var(--colorITemForecast); */
     margin-inline: 10px;
     position: relative;
 }
@@ -69,7 +68,7 @@
 
 .ulDaysHours::-webkit-scrollbar-thumb {
     background-color: #06ad89;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 .ulDaysHours::-webkit-scrollbar-track {
     background-color: #000;
@@ -82,22 +81,32 @@
 }
 .itemDayWeek {
     list-style: none;
+    border-right: 1px solid #d2d2d2;
+    min-width: 14%;
+    background-color: var(--colorITemForecast);
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.itemDayWeek:hover {
+    opacity: 0.7;
 }
 .itemdayHours {
     list-style: none;
     min-width: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     border-right: 1px solid #000;
     height: 100%;
     cursor: pointer;
-    background-color: #04aeef;
+    background-color: var(--colorITemForecast);
+    position: relative;
 }
-.itemdayHours:hover {
-    opacity: 0.8;
-}
+
 .buttonForecast {
     background-color: transparent;
     border: none;
@@ -124,7 +133,86 @@
     margin-inline: 10px;
     margin-bottom: 40px;
 }
-.containerFullHours {
+.containerFullHours,
+.containerFullDays {
     max-width: 1200px;
     margin-inline: auto;
+}
+
+.divWindHours,
+.divPrecipitationHours,
+.divPosibilityPrecipitation,
+.divHpa {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.hoverDivHours {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #64c7ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    display: none;
+}
+.itemdayHours:hover .hoverDivHours {
+    display: flex;
+}
+.temperatureHours {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.divTemperaturaHours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.monthHours {
+    font-size: 14px;
+    opacity: 0.6;
+    font-weight: 700;
+    margin-left: 5px;
+}
+.divWeatherTempDays {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.tempDays {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.divCurrentDayHours {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.nameOfDay {
+    font-weight: 700;
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+}
+.isCurrentDay {
+    background-color: #fff;
+    color: #000;
+}
+.precPosibilityDays {
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+.numberPropForecast {
+    font-weight: 700;
+    font-size: 13px;
 }

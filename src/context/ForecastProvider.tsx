@@ -12,12 +12,25 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [locationUser, setLocationUser] = useState('')
     const [forecastDays, setForecastDays] = useState({})
     const [forecastHours, setForecastHours] = useState({})
+    const [currentTime, setCurrentTime] = useState('')
 
     // Mock de la api para usar en local
     const forecastHoursData = mockMadridHours
     const forecastDaysData = mockMadridDays
     // Mock de la api para usar en local
 
+    const getCurrentDate = () => {
+        const fechaActual = new Date()
+
+        const horaActual = fechaActual.toLocaleTimeString('es-ES', {
+            timeZone: 'Europe/Madrid'
+        })
+        setCurrentTime(horaActual)
+    }
+
+    useEffect(() => {
+        getCurrentDate()
+    }, [forecastHours])
     const initForecastDays = async () => {
         try {
             // const forecastDaysData = await getForecastDays(locationUser)
@@ -32,7 +45,8 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
                     weather: {
                         text: forecast.weather.text,
                         icon: forecast.weather.icon
-                    }
+                    },
+                    precPosibility: forecast.prec.probability
                 })
             )
             const next7Days = forecastDaysMapped.splice(0, 7)
@@ -75,15 +89,6 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
         }
     }
 
-    // useEffect(() => {
-    //     initForecastDays()
-    //     initForecastHours()
-    // }, [locationUser])
-
-    useEffect(() => {
-        // initForecast()
-    }, [locationUser])
-
     return (
         <ForecastContext.Provider
             value={{
@@ -92,7 +97,8 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
                 locationUser,
                 initForecastDays,
                 initForecastHours,
-                forecastHours
+                forecastHours,
+                currentTime
             }}
         >
             {children}
