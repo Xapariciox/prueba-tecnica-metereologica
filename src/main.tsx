@@ -5,9 +5,9 @@ import './styles/index.css'
 import { ForecastProvider } from './context/ForecastProvider.js'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+    //   <React.StrictMode>
     <ForecastProvider>
-      <App />
+        <App />
     </ForecastProvider>
-  </React.StrictMode>
+    //   </React.StrictMode>
 )

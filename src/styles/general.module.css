@@ -18,6 +18,20 @@
 }
 .linksNavHeader {
     text-decoration: none;
+    color: #fff;
+}
+.linksNavHeader {
+}
+.itemLiHeader {
+    padding: 0.8rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    border-radius: 20px;
+    background-color: rgba(39, 57, 112, 0.74);
+    cursor: pointer;
+}
+.itemLiHeader:hover {
+    background-color: #000;
     color: #000;
 }
 
@@ -216,3 +230,6 @@
     font-weight: 700;
     font-size: 13px;
 }
+/* .headerText {
+    text-transform: capitalize;
+} */

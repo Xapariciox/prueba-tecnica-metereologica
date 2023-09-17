@@ -12,22 +12,17 @@ export const Header = () => {
 
     return (
         <header className={styles.headerLayaout}>
-            <div className={styles.divInput}>
+            <form onSubmit={handleLocationUser} className={styles.divInput}>
                 <input
-                    onInput={handleLocationUser}
                     className={styles.inputForecast}
                     type="text"
-                    value={locationUser}
                     name="location"
                     placeholder="Ver tiempo en..."
-                />{' '}
-                <button
-                    className={styles.buttonForecast}
-                    onClick={handleForecast}
-                >
+                />
+                <button type="submit" className={styles.buttonForecast}>
                     <BsSearch />
                 </button>
-            </div>
+            </form>
             <nav className={styles.navHeaderLayout}>
                 <ul className={styles.listaNavHeader}>
                     {/* <li>
@@ -35,7 +30,7 @@ export const Header = () => {
                             Home
                         </Link>
                     </li> */}
-                    <li>
+                    <li className={styles.itemLiHeader}>
                         <Link
                             className={styles.linksNavHeader}
                             to="/forecast-next-day"
@@ -43,7 +38,7 @@ export const Header = () => {
                             Pronostico proximas 24 horas
                         </Link>
                     </li>
-                    <li>
+                    <li className={styles.itemLiHeader}>
                         <Link
                             className={styles.linksNavHeader}
                             to="/forecast-next-week"

@@ -14,7 +14,10 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [forecastDays, setForecastDays] = useState({})
     const [forecastHours, setForecastHours] = useState({})
     const [currentTime, setCurrentTime] = useState('')
-    const [trialFreeSearch, setTrialFreeSearch] = useState('')
+    const [trialFreeSearch, setTrialFreeSearch] = useState(
+        getStorage('numberSearches') || ''
+    )
+    const [shouldRunEffect, setShouldRunEffect] = useState(false)
 
     // Mock de la api para usar en local
     const forecastHoursData = mockMadridHours
@@ -45,8 +48,12 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
         }
     }
     useEffect(() => {
-        getCurrentDate()
-        viewTrialFreesearches()
+        if (shouldRunEffect) {
+            getCurrentDate()
+            viewTrialFreesearches()
+        } else {
+            setShouldRunEffect(true)
+        }
     }, [forecastHours])
 
     const initForecastDays = async () => {

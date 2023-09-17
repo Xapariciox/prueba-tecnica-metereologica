@@ -4,6 +4,30 @@ import {
     foreCastDaysItem
 } from '../interfaces/types'
 
+export const getLocationId = async (query: string) => {
+    const url = `https://foreca-weather.p.rapidapi.com/location/search/${query}?lang=es`
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key':
+                'e7fdeb2ce2mshaa5ead4a7995c12p1ced8fjsn5444f5bb2d24',
+            'X-RapidAPI-Host': 'foreca-weather.p.rapidapi.com'
+        }
+    }
+
+    try {
+        const response = await fetch(url, options)
+        const result = await response.json()
+        const mappedResult = {
+            location: result.locations[0].id,
+            country: result.locations[0].country,
+            name: result.locations[0].name
+        }
+        return mappedResult
+    } catch (error) {
+        console.error(error)
+    }
+}
 const getApiDays = ({ place }: { place: string }) => {
     if (!place) {
         throw new Error('Place not entered')
@@ -21,7 +45,7 @@ const getApiHours = ({ place }: { place: string }) => {
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'fe10fd00d8msh7ec9b3d7b40c9d8p12e352jsneb123665e598',
+        'X-RapidAPI-Key': 'e7fdeb2ce2mshaa5ead4a7995c12p1ced8fjsn5444f5bb2d24',
         'X-RapidAPI-Host': 'forecast9.p.rapidapi.com'
     }
 }
