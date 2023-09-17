@@ -11,12 +11,15 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@emotion/react": "^11.11.1",
         "@googlemaps/react-wrapper": "^1.1.35",
         "moment-timezone": "^0.5.43",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.11.0",
         "react-router-dom": "^6.16.0",
+        "react-spinners": "^0.13.8",
+        "sonner": "^0.7.1",
         "sweetalert2": "^11.7.28",
         "typescript-plugin-css-modules": "^5.0.1",
         "wouter": "^2.11.0"

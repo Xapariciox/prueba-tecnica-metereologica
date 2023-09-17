@@ -1,11 +1,11 @@
-import { HourlyForecastItem } from '../interfaces/types'
+import { ForeCastHoursMappedItem } from '../interfaces/types'
 import styles from '../styles/general.module.css'
 import moment from 'moment-timezone'
 import { FaWind } from 'react-icons/fa'
 import { IconWeather } from './IconsWeather'
 
-export const ForeCastHour = ({ hour }: { hour: HourlyForecastItem }) => {
-    const fechaHoraUTC = hour.date
+export const ForeCastHour = ({ hour }: { hour: ForeCastHoursMappedItem }) => {
+    const fechaHoraUTC = hour.time
     const momentUTC = moment(fechaHoraUTC)
     const momentMadrid = momentUTC.tz('Europe/Madrid')
     const horaFormateada = momentMadrid.format('HH:mm')

@@ -5,28 +5,26 @@ import { ForecastTwentyFour } from '../pages/forecastTwentyFour/ForecastTwentyFo
 import { ForecastWeek } from '../pages/forecastWeek/ForecastWeek'
 
 export const AppRouter = () => {
-  return (
-    <>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/forecast-next-day">
-          <Layout>
-            <ForecastTwentyFour />
-          </Layout>
-        </Route>
-        <Route path="/forecast-next-week">
-          <Layout>
-            <ForecastWeek />
-          </Layout>
-        </Route>
-        <Route>
-          <Layout>
-            <Home />
-          </Layout>
-        </Route>
-      </Switch>
-    </>
-  )
+    return (
+        <>
+            <Switch>
+                <Route path="/">
+                    <Home />
+                </Route>
+                <Route path="/forecast-next-day">
+                    <Layout>
+                        <ForecastTwentyFour />
+                    </Layout>
+                </Route>
+                <Route path="/forecast-next-week">
+                    <Layout>
+                        <ForecastWeek />
+                    </Layout>
+                </Route>
+                <Route>
+                    <Home />
+                </Route>
+            </Switch>
+        </>
+    )
 }

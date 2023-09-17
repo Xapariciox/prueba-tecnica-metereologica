@@ -1,73 +1,73 @@
 export interface ForecastContextProps {
     setLocationUser: (location: string) => void
     locationUser: string
-    forecastDays: any
-    forecastHours: any
+    forecastDays: Array<foreCastDaysItemMapped>
+    forecastHours: Array<ForeCastHoursMappedItem>
     initForecastDays: () => void
     initForecastHours: () => void
     currentTime: string
     trialFreeSearch: string
+    setIsLoading: (isLoading: boolean) => void
+    isLoading: boolean
 }
 export interface foreCastDaysItem {
     date: string
-    dateWithTimezone: string
-    freshSnow: number | null
-    snowHeight: number | null
-    weather: {
-        state: number
-        text: string
-        icon: string
-    }
-    prec: {
-        sum: number
-        probability: number
-        sumAsRain: number | null
-        class: number
-    }
-    sunHours: number
-    rainHours: number | null
-    temperature: {
-        min: number
-        max: number
-        avg: number | null
-    }
-    wind: {
-        unit: string
-        direction: string
-        text: string
-        avg: number | null
-        min: number | null
-        max: number | null
-        significationWind: boolean
-    }
-    windchill: {
-        min: number
-        max: number
-        avg: number | null
-    }
-    snowLine: {
-        avg: number | null
-        min: number | null
-        max: number | null
-        unit: string
-    }
-    astronomy: {
-        dawn: string
-        sunrise: string
-        suntransit: string
-        sunset: string
-        dusk: string
-        moonrise: string
-        moontransit: string | null
-        moonset: string | null
-        moonphase: number
-        moonzodiac: number
-    }
+    symbol: string
+    symbolPhrase: string
+    maxTemp: number
+    minTemp: number
+    maxFeelsLikeTemp: number
+    minFeelsLikeTemp: number
+    maxRelHumidity: number
+    minRelHumidity: number
+    maxDewPoint: number
+    minDewPoint: number
+    precipAccum: number
+    snowAccum: number
+    maxWindSpeed: number
+    windDir: number
+    maxWindGust: number
+    precipProb: number
+    cloudiness: number
+    sunrise: string
+    sunset: string
+    sunriseEpoch: number
+    sunsetEpoch: number
+    moonrise: string
+    moonset: string
+    moonPhase: number
+    uvIndex: number
+    minVisibility: number
+    pressure: number
+    confidence: string
+    solarRadiationSum: number
 }
 
+export interface foreCastHoursItem {
+    time: string
+    symbol: string
+    symbolPhrase: string
+    temperature: number
+    feelsLikeTemp: number
+    windSpeed: number
+    windGust: number
+    relHumidity: number
+    dewPoint: number
+    windDir: number
+    windDirString: string
+    precipProb: number
+    precipAccum: number
+    snowAccum: number
+    cloudiness: number
+    thunderProb: number
+    uvIndex: number
+    pressure: number
+    visibility: number
+    solarRadiation: number
+    precipType: string
+}
 export interface foreCastDaysItemMapped {
     date: string
-    state: number
     temperature: {
         min: number
         max: number
@@ -79,71 +79,37 @@ export interface foreCastDaysItemMapped {
     precPosibility: number
 }
 
-export interface HourlyForecastItem {
-    date: string
-    period: number
-    freshSnow: number | null
-    weather: {
-        state: number
-        text: string
-        icon: string
-    }
-    sunHours: number | null
-    rainHours: number | null
-    prec: {
-        sum: number
-        probability: number
-        sumAsRain: number | null
-        class: number
-    }
-    temperature: {
-        avg: number | null
-    }
-    pressure: number
-    relativeHumidity: number
-    clouds: {
-        high: number
-        low: number
-        middle: number
-    }
-    wind: {
-        unit: string
-        direction: string
-        text: string
-        avg: number | null
-        min: number | null
-        max: number | null
-        gusts: {
-            value: number | null
-            text: string | null
-        }
-        significationWind: boolean
-    }
-    windchill: {
-        avg: number | null
-        min: number | null
-        max: number | null
-    }
-    snowLine: {
-        avg: number | null
-        min: number | null
-        max: number | null
-        unit: string
-    }
+export interface ForecastDays {
+    forecast: foreCastDaysItem[]
+}
+export interface ForecastHours {
+    forecast: foreCastHoursItem[]
+}
+
+export interface ForeCastHoursMappedItem {
+    weather: Weather
+    temperature: Temperature
+    prec: Prec
+    wind: Wind
+    time: string
+    pressure: number | string
     isNight: boolean
 }
 
-export interface ForecastDays {
-    location: {
-        code: string
-        name: string
-        timezone: string
-        coordinates: {
-            latitude: number
-            longitude: number
-        }
-    }
-    forecast: {
-        items: foreCastDaysItem[]
-    }
+export interface Prec {
+    sum: number
+    probability: number
+}
+
+export interface Temperature {
+    avg: number
+}
+
+export interface Weather {
+    text: string
+}
+
+export interface Wind {
+    avg: number
+    unit: string
 }

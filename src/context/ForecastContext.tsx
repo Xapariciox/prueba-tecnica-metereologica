@@ -1,13 +1,19 @@
 import { createContext } from 'react'
-import { ForecastContextProps } from '../interfaces/types'
+import {
+    ForeCastHoursMappedItem,
+    ForecastContextProps,
+    foreCastDaysItemMapped
+} from '../interfaces/types'
 
 export const ForecastContext = createContext<ForecastContextProps>({
     setLocationUser: (location: string) => {},
     locationUser: '',
-    forecastDays: [],
-    forecastHours: [],
+    forecastDays: [] as foreCastDaysItemMapped[],
+    forecastHours: [] as ForeCastHoursMappedItem[],
     initForecastDays: () => {},
     initForecastHours: () => {},
     currentTime: '',
-    trialFreeSearch: ''
+    trialFreeSearch: '',
+    setIsLoading: () => {},
+    isLoading: false
 })

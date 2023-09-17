@@ -1,7 +1,6 @@
 .headerLayaout {
     min-height: 10vh;
     background-color: var(--colorITemForecast);
-    margin-bottom: 20px;
 }
 
 .navHeaderLayout {
@@ -20,42 +19,77 @@
     text-decoration: none;
     color: #fff;
 }
-.linksNavHeader {
-}
 .itemLiHeader {
     padding: 0.8rem;
     padding-right: 0.7rem;
     padding-left: 0.7rem;
-    border-radius: 20px;
+    border-radius: 4px;
     background-color: rgba(39, 57, 112, 0.74);
     cursor: pointer;
+    color: #fff;
+    transition: all ease 0.4s;
 }
 .itemLiHeader:hover {
-    background-color: #000;
-    color: #000;
+    opacity: 0.8;
 }
 
 .ulHome {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     min-height: 100vh;
+}
+.ulHome .liHome:first-child {
+    background-image: url('../img/dia.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all ease 0.4s;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+}
+.ulHome .liHome:first-child:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.ulHome .liHome:nth-child(2) {
+    background-image: url('../img/nightbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    transition: all ease 0.4s;
+}
+.ulHome .liHome:nth-child(2):hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 .liHome {
     text-decoration: none;
     list-style: none;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .linkHome {
     text-decoration: none;
+    text-align: center;
 }
 
 .divInput {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
-    gap: 20px;
-    padding-top: 20px;
+    gap: 0px;
+}
+.divInput input {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    padding-inline: 20px;
 }
 .inputForecast {
     padding: 6px;
@@ -66,6 +100,7 @@
     align-items: center;
     justify-content: center;
     height: 30vh;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 }
 .ulDaysHours {
     display: flex;
@@ -75,9 +110,12 @@
     /* background-color: var(--colorITemForecast); */
     margin-inline: 10px;
     position: relative;
+    border-radius: 4px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 }
 .ulDaysHours::-webkit-scrollbar {
     height: 10px;
+    width: 4px;
 }
 
 .ulDaysHours::-webkit-scrollbar-thumb {
@@ -93,34 +131,37 @@
     align-items: center;
     justify-content: center;
 }
+
+.itemdayHours {
+    list-style: none;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-right: 1px solid #d2d2d2;
+    height: 100%;
+    cursor: pointer;
+    background-color: var(--colorITemForecast);
+    position: relative;
+    transition: all ease 0.4s;
+}
+.itemDayWeek:hover {
+    opacity: 0.7;
+}
 .itemDayWeek {
     list-style: none;
     border-right: 1px solid #d2d2d2;
-    min-width: 14%;
+    min-width: 15%;
     background-color: var(--colorITemForecast);
     height: 100%;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 4px;
+    transition: all ease 0.4s;
 }
-.itemDayWeek:hover {
-    opacity: 0.7;
-}
-.itemdayHours {
-    list-style: none;
-    min-width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    border-right: 1px solid #000;
-    height: 100%;
-    cursor: pointer;
-    background-color: var(--colorITemForecast);
-    position: relative;
-}
-
 .buttonForecast {
     background-color: transparent;
     border: none;
@@ -130,6 +171,12 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+    margin-left: 5px;
+    transition: all ease 0.4s;
+}
+.buttonForecast:hover {
+    background-color: #d2d2d2f9;
+    border-radius: 3px;
 }
 .currentDateHours {
     background: #8a9daa;
@@ -173,11 +220,16 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.4s ease;
 }
+
 .itemdayHours:hover .hoverDivHours {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
+
 .temperatureHours {
     font-size: 18px;
     font-weight: 700;
@@ -218,8 +270,8 @@
     color: #fff;
 }
 .isCurrentDay {
-    background-color: #fff;
-    color: #000;
+    background-color: #05fff254;
+    color: #fff;
 }
 .precPosibilityDays {
     font-weight: 700;
@@ -230,6 +282,89 @@
     font-weight: 700;
     font-size: 13px;
 }
-/* .headerText {
-    text-transform: capitalize;
-} */
+.headerText {
+    margin-top: 20px;
+}
+
+.divTitleWithoutData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+}
+
+.rebote {
+    height: 100px;
+    animation: reboteAnimacion 3s infinite;
+}
+
+@keyframes reboteAnimacion {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.loading {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* diseño responsive only mobile */
+@media (max-width: 768px) {
+    .ulHome {
+        flex-direction: column;
+        width: 100vw;
+    }
+    .liHome {
+        height: 50vh;
+        width: 100vw;
+    }
+    .listaNavHeader {
+        flex-direction: column;
+    }
+    .navHeaderLayout {
+        height: 20vh;
+    }
+    .containerDaysWeek {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 40px;
+        gap: 5px;
+    }
+    .itemDayWeek {
+        width: 80%;
+    }
+    .containerFullDays .leyendaHours:first-of-type,
+    .containerFullHours .leyendaHours:first-of-type {
+        padding-top: 20px;
+    }
+    .containerFullDays,
+    .containerFullHours {
+        max-width: 390px;
+    }
+    .ulDaysHours {
+        flex-direction: column;
+        width: 80%;
+        overflow-x: auto;
+        gap: 5px;
+    }
+    .itemdayHours {
+        width: 100%;
+        min-height: 150px;
+    }
+    .divPrecipitationHours,
+    .divTemperaturaHours,
+    .divWindHours {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+
+/* diseño responsive only mobile */

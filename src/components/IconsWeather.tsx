@@ -4,14 +4,26 @@ interface IconWeatherProps {
     width?: number
 }
 export const IconWeather = ({ text, isNight, width }: IconWeatherProps) => {
+    // Define los casos de acuerdo al valor de "symbolPhrase"
     switch (text) {
-        case 'Parcialmente nublado':
+        case 'clear':
             if (isNight) {
                 return (
                     <img
                         width={width}
                         src="../img/parcialmente-nublado-noche.gif"
-                        alt="nublado noche"
+                        alt={text}
+                    />
+                )
+            }
+            return <img width={width} src="../img/claro.png" alt={text} />
+        case 'mostly clear':
+            if (isNight) {
+                return (
+                    <img
+                        width={width}
+                        src="../img/parcialmente-nublado-noche.gif"
+                        alt={text}
                     />
                 )
             }
@@ -19,18 +31,16 @@ export const IconWeather = ({ text, isNight, width }: IconWeatherProps) => {
                 <img
                     width={width}
                     src="../img/parcialmente-nublado.gif"
-                    alt="nublado"
+                    alt={text}
                 />
             )
-        case 'Llovizna ligera':
-            return <img width={width} src="../img/lluvia.gif" alt="Llovizna" />
-        case 'Nublado':
-            return <img width={width} src="../img/nublado.gif" alt="nublado" />
-        case 'Soleado':
-            return <img width={width} src="../img/soleado.gif" alt="soleado" />
-        case 'Claro':
-            return <img width={width} src="../img/claro.png" alt="soleado" />
+        case 'light rain':
+            return <img width={width} src="../img/lluvia.gif" alt={text} />
+        case 'cloudy':
+            return <img width={width} src="../img/nublado.gif" alt={text} />
+        case 'sunny':
+            return <img width={width} src="../img/soleado.gif" alt={text} />
         default:
-            return <img width={width} src="../img/soleado.gif" alt="soleado" />
+            return <img width={width} src="../img/soleado.gif" alt={text} />
     }
 }

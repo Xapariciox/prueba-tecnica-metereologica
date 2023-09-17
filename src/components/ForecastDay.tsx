@@ -6,7 +6,7 @@ import { CurrentDay } from './CurrentDay'
 import { IconWeather } from './IconsWeather'
 
 export const ForecastDay = ({ day }: { day: foreCastDaysItemMapped }) => {
-    const { date, state, temperature, weather, precPosibility } = day
+    const { date, temperature, weather, precPosibility } = day
     const { currentTime } = useContext(ForecastContext)
     const dateSplit = date.split('-')
     return (

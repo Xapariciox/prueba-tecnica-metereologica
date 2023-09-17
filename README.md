@@ -92,5 +92,4 @@ pnpm test
 ## Extras Personales
 
 -   [] Tests
--   [] Pagina Predicción Mensual
--   [] Typescript
+-   [x] Typescript
