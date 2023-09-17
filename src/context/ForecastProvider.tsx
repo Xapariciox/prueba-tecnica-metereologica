@@ -49,11 +49,12 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
             setStorage('numberSearches', '1')
             setTrialFreeSearch('1')
         } else {
-            if (numberSearchesLocalStorage === '4') {
+            if (numberSearchesLocalStorage === '5') {
                 setTrialFreeSearch('5')
             } else {
                 const searchesNumer = parseInt(numberSearchesLocalStorage) + 1
                 const searchesString = searchesNumer.toString()
+                setTrialFreeSearch(searchesString)
                 setStorage('numberSearches', searchesString)
             }
         }
@@ -65,7 +66,7 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
         } else {
             setShouldRunEffect(true)
         }
-    }, [forecastHours])
+    }, [locationUser])
 
     const initForecastDays = async () => {
         try {

@@ -11,7 +11,10 @@ export const HeaderText = () => {
             {/* {locationUser
                 ? `El tiempo en ${locationUserTitle}`
                 : 'El tiempo en ...'} */}
-            {`El tiempo en ${locationUser.toLowerCase()}`}
+            El tiempo en{' '}
+            <span style={{ textTransform: 'capitalize' }}>
+                {locationUser.toLowerCase()}
+            </span>
         </h2>
     )
 }
