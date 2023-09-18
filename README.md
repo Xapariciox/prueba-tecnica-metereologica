@@ -52,6 +52,10 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
 
 5. Abre tu navegador y accede a [http://localhost:5173](http://localhost:5173) para ver la aplicación en funcionamiento.
 
+
+6. El Script de empaquetado se ejecuta estando en la direccion del proyecto y ejecutando "npm run build" lo cual generara una carpeta build con el empaquetado.
+
+
 ## Tareas generales
 
 -   [x] API de datos metereológicos
