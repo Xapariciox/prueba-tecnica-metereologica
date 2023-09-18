@@ -5,7 +5,6 @@
     -   [Instrucciones para ejecutar el proyecto en local](#instrucciones-para-ejecutar-el-proyecto-en-local)
         -   [Requisitos previos](#requisitos-previos)
         -   [Configuración del entorno](#configuración-del-entorno)
-    -   [Lanzar los test](#lanzar-los-test)
     -   [Tareas generales](#tareas-generales)
 
 # Prueba Técnica metereologica
