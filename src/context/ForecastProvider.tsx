@@ -14,7 +14,7 @@ import { mockMadridDays, mockMadridHours } from '../mocks/responseMadrid'
 import { translateItems } from '../helpers/translateTextToSpanish'
 import { getStorage, setStorage } from '../services/localstorage'
 import { isNight } from '../helpers/isNight'
-import { NUMBER_SEARCHES } from '../constants/localStorage'
+import { LOCATION_USER, NUMBER_SEARCHES } from '../constants/localStorage'
 
 export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [locationUser, setLocationUser] = useState('')
@@ -90,7 +90,7 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
             )
             const next7Days = forecastDaysMapped.splice(0, 7)
             const dataTranslated = translateItems(next7Days)
-            setStorage('LOCATION_USER', locationUser)
+            setStorage(LOCATION_USER, locationUser)
             setForecastDays(dataTranslated)
         } catch (error) {
             setIsLoading(false)

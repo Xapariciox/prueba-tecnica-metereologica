@@ -4,6 +4,7 @@ import { getStorage, setStorage } from '../services/localstorage'
 import Swal from 'sweetalert2'
 import { getLocationId } from '../services/data-meteorological'
 import { toast } from 'sonner'
+import { LOCATION_USER } from '../constants/localStorage'
 
 export const useForecast = () => {
     const {
@@ -57,7 +58,7 @@ export const useForecast = () => {
 
             return
         }
-        const storedLocation = getStorage('LOCATION_USER')
+        const storedLocation = getStorage(LOCATION_USER)
         if (
             !storedLocation ||
             storedLocation !== locationUser ||
@@ -66,7 +67,7 @@ export const useForecast = () => {
             setIsLoading(true)
             initForecastDays()
             initForecastHours()
-            setStorage('LOCATION_USER', locationUser)
+            setStorage(LOCATION_USER, locationUser)
         }
     }
     useEffect(() => {
