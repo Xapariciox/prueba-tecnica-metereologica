@@ -18,7 +18,7 @@ export const ForecastTwentyFour = () => {
                     <>
                         <HeaderText />
                         <p className={styles.leyendaHours}>
-                            Pronostico de las proximas 24 horas
+                            Pronóstico de las proximas 24 horas
                         </p>
                         <p className={styles.leyendaHours}>
                             Última actualizacion: {currentTime}

@@ -6,11 +6,11 @@ export const Home = () => {
         <>
             <ul className={styles.ulHome}>
                 <Link className={styles.linkHome} to="/forecast-next-day">
-                    <li className={styles.liHome}> Pronostico 24 horas</li>
+                    <li className={styles.liHome}> Pronóstico 24 horas</li>
                 </Link>
 
                 <Link className={styles.linkHome} to="/forecast-next-week">
-                    <li className={styles.liHome}>Pronostico Semanal</li>
+                    <li className={styles.liHome}>Pronóstico Semanal</li>
                 </Link>
 
                 {/* <li>

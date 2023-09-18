@@ -85,11 +85,10 @@ pnpm test
 
 ## Tareas Opcionales
 
--   [] Personalizar tema
--   [] Responsive
+-   [x] Personalizar tema
+-   [x] Responsive
 -   [x] Script de empaquetado
 
 ## Extras Personales
 
--   [] Tests
 -   [x] Typescript

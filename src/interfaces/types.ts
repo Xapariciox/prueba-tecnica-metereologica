@@ -9,6 +9,8 @@ export interface ForecastContextProps {
     trialFreeSearch: string
     setIsLoading: (isLoading: boolean) => void
     isLoading: boolean
+    setIsDarkMode: (isDarkMode: boolean) => void
+    isDarkMode: boolean
 }
 export interface foreCastDaysItem {
     date: string

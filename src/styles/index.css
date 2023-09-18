@@ -8,6 +8,10 @@
 :root {
     --bg-green: #f2f7e3;
     --colorITemForecast: #04aeef;
+    --background-color-light: #ffffff;
+    --background-color-dark: #191c22;
+    --text-color-light: #23272f;
+    --text-color-dark: #ffffff;
 }
 @font-face {
     font-family: 'source-sans-regular';
@@ -30,7 +34,44 @@ body {
     font-family: source-sans-regular;
     /* min-height: 100vh; */
 }
+body.darkMode {
+    background-color: #23272f;
+}
 svg path {
     width: 100%;
     height: 100%;
+}
+
+.switch {
+    width: 60px;
+    height: 30px;
+    background-color: #e1e1e1; /* Color claro cuando está inactivo */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.switch.active {
+    background-color: #333; /* Color oscuro cuando está activo */
+}
+
+.slider {
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.switch.active .slider {
+    transform: translateX(30px);
+}
+main {
+    min-height: 90vh;
+}
+main.darkMode {
+    background-color: #23272f;
 }

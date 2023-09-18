@@ -57,7 +57,7 @@ export const useForecast = () => {
 
             return
         }
-        const storedLocation = getStorage('location-user')
+        const storedLocation = getStorage('LOCATION_USER')
         if (
             !storedLocation ||
             storedLocation !== locationUser ||
@@ -66,7 +66,7 @@ export const useForecast = () => {
             setIsLoading(true)
             initForecastDays()
             initForecastHours()
-            setStorage('location-user', locationUser)
+            setStorage('LOCATION_USER', locationUser)
         }
     }
     useEffect(() => {

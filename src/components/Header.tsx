@@ -4,15 +4,19 @@ import { useForecast } from '../hooks/useForecast'
 import { useContext } from 'react'
 import { ForecastContext } from '../context/ForecastContext'
 import { BsSearch } from 'react-icons/bs'
-import { toast } from 'sonner'
+import { Switch } from './Switch'
 
 export const Header = () => {
-    const { locationUser, forecastDays } = useContext(ForecastContext)
+    const { locationUser, forecastDays, isDarkMode } =
+        useContext(ForecastContext)
 
     const { handleLocationUser, handleForecast } = useForecast()
+    const headerClass = `${styles.headerLayaout}  ${
+        isDarkMode ? styles.darkMode : ''
+    }`
 
     return (
-        <header className={styles.headerLayaout}>
+        <header className={headerClass}>
             <nav className={styles.navHeaderLayout}>
                 <ul className={styles.listaNavHeader}>
                     {/* <li>
@@ -25,7 +29,7 @@ export const Header = () => {
                         to="/forecast-next-day"
                     >
                         <li className={styles.itemLiHeader}>
-                            Pronostico 24 horas
+                            Pronóstico 24 horas
                         </li>
                     </Link>
                     <Link
@@ -33,7 +37,7 @@ export const Header = () => {
                         to="/forecast-next-week"
                     >
                         <li className={styles.itemLiHeader}>
-                            Pronostico semana
+                            Pronóstico semana
                         </li>
                     </Link>
 
@@ -48,9 +52,11 @@ export const Header = () => {
                             placeholder="Ver tiempo en..."
                         />
                         <button type="submit" className={styles.buttonForecast}>
-                            <BsSearch />
+                            {}
+                            <BsSearch color={isDarkMode ? 'white' : ''} />
                         </button>
                     </form>
+                    <Switch />
                 </ul>
             </nav>
         </header>

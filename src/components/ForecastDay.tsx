@@ -1,13 +1,10 @@
-import { useContext } from 'react'
 import { foreCastDaysItemMapped } from '../interfaces/types'
 import styles from '../styles/general.module.css'
-import { ForecastContext } from '../context/ForecastContext'
 import { CurrentDay } from './CurrentDay'
 import { IconWeather } from './IconsWeather'
 
 export const ForecastDay = ({ day }: { day: foreCastDaysItemMapped }) => {
     const { date, temperature, weather, precPosibility } = day
-    const { currentTime } = useContext(ForecastContext)
     const dateSplit = date.split('-')
     return (
         <li className={styles.itemDayWeek}>

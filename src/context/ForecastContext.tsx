@@ -15,5 +15,7 @@ export const ForecastContext = createContext<ForecastContextProps>({
     currentTime: '',
     trialFreeSearch: '',
     setIsLoading: () => {},
-    isLoading: false
+    isLoading: false,
+    setIsDarkMode: (isDarkMode: boolean) => {},
+    isDarkMode: false
 })

@@ -14,6 +14,7 @@ import { mockMadridDays, mockMadridHours } from '../mocks/responseMadrid'
 import { translateItems } from '../helpers/translateTextToSpanish'
 import { getStorage, setStorage } from '../services/localstorage'
 import { isNight } from '../helpers/isNight'
+import { NUMBER_SEARCHES } from '../constants/localStorage'
 
 export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     const [locationUser, setLocationUser] = useState('')
@@ -25,10 +26,11 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
     >([])
     const [currentTime, setCurrentTime] = useState('')
     const [trialFreeSearch, setTrialFreeSearch] = useState(
-        getStorage('numberSearches') || ''
+        getStorage(NUMBER_SEARCHES) || ''
     )
     const [shouldRunEffect, setShouldRunEffect] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isDarkMode, setIsDarkMode] = useState(false)
 
     // Mock de la api para usar en local
     const forecastHoursData = mockMadridHours
@@ -44,9 +46,9 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
         setCurrentTime(horaActual)
     }
     const viewTrialFreesearches = () => {
-        const numberSearchesLocalStorage = getStorage('numberSearches')
+        const numberSearchesLocalStorage = getStorage(NUMBER_SEARCHES)
         if (!numberSearchesLocalStorage) {
-            setStorage('numberSearches', '1')
+            setStorage(NUMBER_SEARCHES, '1')
             setTrialFreeSearch('1')
         } else {
             if (numberSearchesLocalStorage === '5') {
@@ -55,7 +57,7 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
                 const searchesNumer = parseInt(numberSearchesLocalStorage) + 1
                 const searchesString = searchesNumer.toString()
                 setTrialFreeSearch(searchesString)
-                setStorage('numberSearches', searchesString)
+                setStorage(NUMBER_SEARCHES, searchesString)
             }
         }
     }
@@ -88,7 +90,7 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
             )
             const next7Days = forecastDaysMapped.splice(0, 7)
             const dataTranslated = translateItems(next7Days)
-            setStorage('location-user', locationUser)
+            setStorage('LOCATION_USER', locationUser)
             setForecastDays(dataTranslated)
         } catch (error) {
             setIsLoading(false)
@@ -149,7 +151,9 @@ export const ForecastProvider = ({ children }: { children: JSX.Element }) => {
                 currentTime,
                 trialFreeSearch,
                 setIsLoading,
-                isLoading
+                isLoading,
+                setIsDarkMode,
+                isDarkMode
             }}
         >
             {children}
