@@ -32,7 +32,7 @@ export const useForecast = () => {
             setLocationUser(element)
         } else {
             toast(
-                `Al parecer ha ocurrido al buscar la localidad. Por favor intente de nuevo con otra.`
+                `Al parecer ha ocurrido un error al buscar la localidad. Por favor intente de nuevo con otra.`
             )
         }
     }
